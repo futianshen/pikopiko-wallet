@@ -1,18 +1,21 @@
-import React, { useState } from 'react';
-import Index from '../components/Index';
-import New from '../components/New';
+import IndexPage from "@/components/pages/IndexPage"
+import NewPage from "@/components/pages/NewPage"
+import styles from "@/styles/Pages.module.css"
+import { useRouter } from "next/router"
+import { useState } from "react"
 
-export default function Home() {
-  const [activePage, setActivePage] = useState('index');
-
-  const navigateToPage = (page) => {
-    setActivePage(page);
-  };
+export default function Index() {
+  const router = useRouter()
+  const [activePage, setActivePage] = useState("index")
 
   return (
-    <>
-      {activePage === 'index' && <Index navigateToPage={navigateToPage} />}
-      {activePage === 'new' && <New navigateToPage={navigateToPage} />}
-    </>
-  );
+    <main className={styles.main}>
+      {activePage === "index" && (
+        <IndexPage onClick={() => setActivePage("new")} />
+      )}
+      {activePage === "new" && (
+        <NewPage onClick={() => setActivePage("index")} />
+      )}
+    </main>
+  )
 }
