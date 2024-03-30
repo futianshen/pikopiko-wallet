@@ -31,6 +31,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@radix-ui/react-icons", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.3.0"],\
             ["@radix-ui/react-progress", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.0.3"],\
             ["@radix-ui/react-slot", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.0.2"],\
+            ["@stitches/react", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.2.8"],\
             ["autoprefixer", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:10.4.19"],\
             ["class-variance-authority", "npm:0.7.0"],\
             ["clsx", "npm:2.1.0"],\
@@ -557,6 +558,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@rushstack-eslint-patch-npm-1.10.1-1d202d280b-ea539ec4d4.zip/node_modules/@rushstack/eslint-patch/",\
           "packageDependencies": [\
             ["@rushstack/eslint-patch", "npm:1.10.1"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["@stitches/react", [\
+        ["npm:1.2.8", {\
+          "packageLocation": "./.yarn/cache/@stitches-react-npm-1.2.8-445a1042b8-029795323c.zip/node_modules/@stitches/react/",\
+          "packageDependencies": [\
+            ["@stitches/react", "npm:1.2.8"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.2.8", {\
+          "packageLocation": "./.yarn/__virtual__/@stitches-react-virtual-378209ef88/0/cache/@stitches-react-npm-1.2.8-445a1042b8-029795323c.zip/node_modules/@stitches/react/",\
+          "packageDependencies": [\
+            ["@stitches/react", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.2.8"],\
+            ["@types/react", null],\
+            ["react", "npm:18.2.0"]\
+          ],\
+          "packagePeers": [\
+            "@types/react",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
@@ -3820,6 +3843,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@radix-ui/react-icons", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.3.0"],\
             ["@radix-ui/react-progress", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.0.3"],\
             ["@radix-ui/react-slot", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.0.2"],\
+            ["@stitches/react", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.2.8"],\
             ["autoprefixer", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:10.4.19"],\
             ["class-variance-authority", "npm:0.7.0"],\
             ["clsx", "npm:2.1.0"],\

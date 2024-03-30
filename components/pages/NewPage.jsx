@@ -1,11 +1,14 @@
-import { Button } from "@/components/ui"
-import { LevelProgress } from "@/components/x"
+import { RoundButton, LevelProgress } from "@/components/x"
+import { FaceIcon } from "@radix-ui/react-icons"
 
 export default function NewPage({ onClick }) {
   return (
     <div>
       <LevelProgress level={8} value={80} />
-      <Button onClick={onClick}>Go to Index Page</Button>
+
+      <RoundButton onClick={onClick}>
+        <FaceIcon />
+      </RoundButton>
     </div>
   )
 }
