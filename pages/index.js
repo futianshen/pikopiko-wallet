@@ -1,17 +1,22 @@
 import { Input } from "@/components/ui/input"
-import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { LevelProgress, Nav } from "@/components/compose"
 import { HomeIcon, MobileIcon } from "@radix-ui/react-icons"
 import styles from "@/styles/Pages.module.css"
 import pikopiko from "@/public/images/pikopiko.png"
+import Drawer from "react-modern-drawer"
+import { useState } from "react"
+import { styled } from "@stitches/react"
 
 export default function Index() {
   return (
     <main className={styles.main}>
       <div className="w-full h-full flex flex-col justify-between">
         <Nav />
-        <Tabs defaultValue="social" className="w-full">
+        <Tabs
+          defaultValue="social"
+          className="h-full w-full flex flex-col justify-between"
+        >
           <SocialTabContent />
           <PetsTabContent />
           <TabList />
@@ -34,23 +39,37 @@ const TabList = () => {
   )
 }
 
+import "react-modern-drawer/dist/index.css"
+
 const SocialTabContent = () => {
-  return (
-    <TabsContent value="social">
-      <div className="m-4">
-        <Image src={pikopiko} alt="pikopiko" />
-        <LevelProgress level={3} value={20} />
-      </div>
-    </TabsContent>
-  )
+  return <TabsContent value="social" className=" m-4"></TabsContent>
 }
 
 const PetsTabContent = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const toggleDrawer = () => setIsOpen((prevState) => !prevState)
+  console.log(pikopiko.src.replace("_next", "next"))
+
   return (
     <TabsContent value="pets">
-      <div>
-        <Input placeholder="Search"></Input>
-      </div>
+      <img src={pikopiko.src.replace("_next", "next")} alt="pikopiko" />
+      <LevelProgress level={3} value={20} />
+
+      <button onClick={toggleDrawer}>Show</button>
+      <Drawer
+        open={isOpen}
+        onClose={toggleDrawer}
+        direction="bottom"
+        style={{
+          position: "absolute",
+          backgroundColor: "#171717",
+          height: "80%",
+        }}
+      >
+        <div className="m-4">
+          <Input placeholder="Search"></Input>
+        </div>
+      </Drawer>
     </TabsContent>
   )
 }
