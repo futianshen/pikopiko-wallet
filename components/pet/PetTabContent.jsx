@@ -29,6 +29,21 @@ export const PetTabContent = () => {
     },
   ]
 
+  const pointList = [
+    { address: "0x3a...f4c", points: 150 },
+    { address: "0x9b...e2d", points: 120 },
+    { address: "0x1c...b8a", points: 100 },
+    { address: "0x3a...f4c", points: 150 },
+    { address: "0x9b...e2d", points: 120 },
+    { address: "0x1c...b8a", points: 100 },
+    { address: "0x3a...f4c", points: 150 },
+    { address: "0x9b...e2d", points: 120 },
+    { address: "0x1c...b8a", points: 100 },
+    { address: "0x3a...f4c", points: 150 },
+    { address: "0x9b...e2d", points: 120 },
+    { address: "0x1c...b8a", points: 100 },
+  ]
+
   return (
     <div>
       <TabsContent value="pets">
@@ -72,7 +87,19 @@ export const PetTabContent = () => {
         >
           {activeDrawer === "event" && (
             <div className="m-4">
-              <Input placeholder="Search"></Input>
+              <div className="flex flex-col items-center gap-1 mb-4">
+                <span>Ranking:1</span>
+                <span>points: 100 pts</span>
+              </div>
+              {pointList.map(({ address, points }, i) => (
+                <div className="flex justify-between" gap="8px">
+                  <div className="flex" gap="8px">
+                    <span>{i + 1}. </span>
+                    <span>{address}</span>
+                  </div>
+                  <span>{points} pts</span>
+                </div>
+              ))}
             </div>
           )}
           {activeDrawer === "quest" && (
