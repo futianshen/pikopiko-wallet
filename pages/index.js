@@ -1,9 +1,8 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs"
-import { Nav } from "@/components/ui/compose"
-import styles from "@/styles/Pages.module.css"
-import { HomeIcon, MobileIcon } from "@radix-ui/react-icons"
-import { SocialTabContent } from "@/components/social/SocialTabContent"
 import { PetTabContent } from "@/components/pet/PetTabContent"
+import { SocialTabContent } from "@/components/social/SocialTabContent"
+import { Tabs } from "@/components/ui/Tabs"
+import { Nav, TabList } from "@/components/ui/compose"
+import styles from "@/styles/Pages.module.css"
 
 export default function Index() {
   return (
@@ -20,18 +19,5 @@ export default function Index() {
         </Tabs>
       </div>
     </main>
-  )
-}
-
-const TabList = () => {
-  return (
-    <TabsList>
-      <TabsTrigger value="social" className="w-6/12">
-        <HomeIcon className="mr-2" /> SOCIAL
-      </TabsTrigger>
-      <TabsTrigger value="pets" className="w-6/12">
-        <MobileIcon className="mr-2" /> PETS
-      </TabsTrigger>
-    </TabsList>
   )
 }

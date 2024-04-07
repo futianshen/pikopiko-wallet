@@ -12,7 +12,7 @@ export const Drawer = ({ children, ...props }) => {
       }}
       {...props}
     >
-      {children}
+      <div className="p-4">{children}</div>
     </ReactModernDrawer>
   )
 }

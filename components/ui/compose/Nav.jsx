@@ -1,22 +1,8 @@
-import { HomeIcon, ClipboardIcon } from "@radix-ui/react-icons"
-import { RoundButton } from "./RoundButton"
-import {
-  Menubar,
-  MenubarCheckboxItem,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarRadioGroup,
-  MenubarRadioItem,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
-  MenubarTrigger,
-} from "@/components/ui/Menubar"
+import { Drawer } from "@/components/ui/Drawer"
+import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/Menubar"
+import { AvatarIcon } from "@radix-ui/react-icons"
+import { Menu as MenuIcon, Wallet as WalletIcon } from "lucide-react"
 import { useState } from "react"
-import Drawer from "react-modern-drawer"
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -27,12 +13,12 @@ const Nav = () => {
         <div className="flex items-center gap-2">
           <MenubarMenu>
             <MenubarTrigger onClick={toggleDrawer}>
-              <HomeIcon />
+              <MenuIcon size={16} />
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger onClick={toggleDrawer}>
-              <HomeIcon />
+              <AvatarIcon />
             </MenubarTrigger>
           </MenubarMenu>
         </div>
@@ -40,7 +26,7 @@ const Nav = () => {
 
         <MenubarMenu>
           <MenubarTrigger onClick={toggleDrawer}>
-            <HomeIcon />
+            <WalletIcon size={16} />
           </MenubarTrigger>
         </MenubarMenu>
       </Menubar>
@@ -53,9 +39,7 @@ const Nav = () => {
           backgroundColor: "#171717",
           height: "80%",
         }}
-      >
-        <div className="m-4"></div>
-      </Drawer>
+      ></Drawer>
     </>
   )
 }
