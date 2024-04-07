@@ -1,7 +1,10 @@
 import { Drawer } from "@/components/ui/Drawer"
 import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/Menubar"
-import { AvatarIcon } from "@radix-ui/react-icons"
-import { Menu as MenuIcon, Wallet as WalletIcon } from "lucide-react"
+import {
+  Menu as MenuIcon,
+  Wallet as WalletIcon,
+  User as UserIcon,
+} from "lucide-react"
 import { useState } from "react"
 import phantom from "@/public/images/phantom.png"
 import backpack from "@/public/images/backpack.png"
@@ -46,12 +49,12 @@ const Nav = () => {
         <div className="flex items-center gap-2">
           <MenubarMenu>
             <MenubarTrigger onClick={() => toggleDrawer("menu")}>
-              <MenuIcon size={16} />
+              <MenuIcon size={16} strokeWidth={1} />
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
             <MenubarTrigger onClick={() => toggleDrawer("avatar")}>
-              <AvatarIcon />
+              <UserIcon size={16} strokeWidth={1} />
             </MenubarTrigger>
           </MenubarMenu>
         </div>
@@ -59,7 +62,7 @@ const Nav = () => {
 
         <MenubarMenu>
           <MenubarTrigger onClick={() => toggleDrawer("wallet")}>
-            <WalletIcon size={16} />
+            <WalletIcon size={16} strokeWidth={1} />
           </MenubarTrigger>
         </MenubarMenu>
       </Menubar>
