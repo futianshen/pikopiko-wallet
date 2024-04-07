@@ -1,8 +1,8 @@
 .main {
   width: 360px;
   height: 600px;
-  padding: 20px 30px;
-  background-color: #171717; 
+  padding: 20px 64px;
+  background-color: #171717;
   color: white;
   position: relative;
 }
