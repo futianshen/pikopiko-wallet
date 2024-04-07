@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "pikopiko-wallet",
-  "short_name": "pikopiko-wallet",
+  "name": "Sol Pet Legends",
+  "short_name": "sol-pet-legends",
   "version": "0.1.0",
   "description": "Integrating a virtual pet breeding gameplay with a cashback app to create a mixed reality interaction model and a shopping experience that sns from web2 to web3.",
   "icons": {
