@@ -1,10 +1,13 @@
 import { Drawer } from "@/components/ui/Drawer"
-import { Input } from "@/components/ui/Input"
+
 import { Button } from "@/components/ui/Button"
-import { TabsContent } from "@/components/ui/Tabs"
+import { Tabs, TabsContent } from "@/components/ui/Tabs"
+import { SocialQuestTabList } from "@/components/social/SocialQuestTabList"
 import { FightingMachine } from "@/components/ui/compose/FightingMachine"
 import { Swords } from "lucide-react"
 import { useState } from "react"
+import { SocialQuestWeb3TabContent } from "@/components/social/SocialQuestWeb3TabContent"
+import { SocialQuestWeb2TabContent } from "@/components/social/SocialQuestWeb2TabContent"
 
 import {
   Popover,
@@ -51,37 +54,37 @@ export const SocialTabContent = () => {
   const drawerButtons = [
     {
       key: "event",
-      image: event.src.replace("_next", "next"),
+      image: event.src,
       title: "Event",
     },
     {
       key: "quest",
-      image: quest.src.replace("_next", "next"),
+      image: quest.src,
       title: "Quest",
     },
   ]
 
   const pointList = [
     {
-      avatar: dog.src.replace("_next", "next"),
+      avatar: dog.src,
       address: "0x3aaeo3eostsf4c",
       level: 1,
       points: 150,
     },
     {
-      avatar: cat.src.replace("_next", "next"),
+      avatar: cat.src,
       address: "0x9baeo3eostse2d",
       level: 2,
       points: 120,
     },
     {
-      avatar: penguin.src.replace("_next", "next"),
+      avatar: penguin.src,
       address: "0x1caeo3eostsb8a",
       level: 3,
       points: 100,
     },
     {
-      avatar: turtle.src.replace("_next", "next"),
+      avatar: turtle.src,
       address: "0x3aaeo3eostsf4c",
       level: 4,
       points: 150,
@@ -170,7 +173,14 @@ export const SocialTabContent = () => {
           )}
           {activeDrawer === "quest" && (
             <div className="m-4">
-              <Input placeholder="Search"></Input>
+              <Tabs
+                defaultValue="web3"
+                className="h-full w-full flex flex-col justify-between"
+              >
+                <SocialQuestTabList />
+                <SocialQuestWeb3TabContent />
+                <SocialQuestWeb2TabContent />
+              </Tabs>
             </div>
           )}
         </Drawer>

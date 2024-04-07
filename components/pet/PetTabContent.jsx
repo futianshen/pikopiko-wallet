@@ -17,12 +17,12 @@ export const PetTabContent = () => {
   const drawerButtons = [
     {
       key: "items",
-      image: petItems.src.replace("_next", "next"),
+      image: petItems.src,
       title: "Items",
     },
     {
       key: "database",
-      image: petDatabase.src.replace("_next", "next"),
+      image: petDatabase.src,
       title: "Database",
     },
   ]

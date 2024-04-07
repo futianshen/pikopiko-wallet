@@ -27,17 +27,17 @@ const Nav = () => {
 
   const wallet = [
     {
-      icon: phantom.src.replace("_next", "next"),
+      icon: phantom.src,
       name: "Phantom",
       detected: true,
     },
     {
-      icon: backpack.src.replace("_next", "next"),
+      icon: backpack.src,
       name: "backpack",
       detected: true,
     },
     {
-      icon: metamask.src.replace("_next", "next"),
+      icon: metamask.src,
       name: "MetaMask",
       detected: true,
     },

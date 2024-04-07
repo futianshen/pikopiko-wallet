@@ -68,7 +68,7 @@ to
 ```
 import phantom from "@/public/images/phantom.png"
 
-<img src={phantom.src.replace("_next", "next")} alt="phantom" />
+<img src={phantom.src} alt="phantom" />
 ```
 
 2. Open Google Chrome and go to chrome://extensions.
