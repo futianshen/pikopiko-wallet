@@ -1,14 +1,21 @@
-import { FightingMachine } from "@/components/ui/compose/FightingMachine"
 import { Drawer } from "@/components/ui/Drawer"
 import { Input } from "@/components/ui/Input"
+import { Button } from "@/components/ui/Button"
 import { TabsContent } from "@/components/ui/Tabs"
+import { FightingMachine } from "@/components/ui/compose/FightingMachine"
+import { Swords } from "lucide-react"
 import { useState } from "react"
 
-import event from "@/public/images/event.webp"
-import quest from "@/public/images/quest.webp"
-import dog from "@/public/images/dog.webp"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 import cat from "@/public/images/cat.webp"
+import dog from "@/public/images/dog.webp"
+import event from "@/public/images/event.webp"
 import penguin from "@/public/images/penguin.webp"
+import quest from "@/public/images/quest.webp"
 import turtle from "@/public/images/turtle.webp"
 import { styled } from "@stitches/react"
 
@@ -17,7 +24,12 @@ const StyledAvatar = styled("img", {
   height: "32px",
 })
 
-const StyledListItem = styled("li", {
+const StyledPopoverAvatar = styled("img", {
+  width: "64px",
+  height: "64px",
+})
+
+const StyledListItem = styled(PopoverTrigger, {
   display: "flex",
   gap: "8px",
   alignItems: "center",
@@ -50,10 +62,10 @@ export const SocialTabContent = () => {
   ]
 
   const pointList = [
-    { avatar: dog.src, address: "0x3a...f4c", points: 150 },
-    { avatar: cat.src, address: "0x9b...e2d", points: 120 },
-    { avatar: penguin.src, address: "0x1c...b8a", points: 100 },
-    { avatar: turtle.src, address: "0x3a...f4c", points: 150 },
+    { avatar: dog.src, address: "0x3aaeo3eostsf4c", level: 1, points: 150 },
+    { avatar: cat.src, address: "0x9baeo3eostse2d", level: 2, points: 120 },
+    { avatar: penguin.src, address: "0x1caeo3eostsb8a", level: 3, points: 100 },
+    { avatar: turtle.src, address: "0x3aaeo3eostsf4c", level: 4, points: 150 },
   ]
 
   return (
@@ -102,18 +114,36 @@ export const SocialTabContent = () => {
                 <span>Ranking:1</span>
                 <span>points: 100 pts</span>
               </div>
+
               <ol className="flex flex-col gap-2 h-full">
-                {pointList.map(({ avatar, address, points }, i) => (
-                  <StyledListItem className="flex ">
-                    <div className="flex" gap="8px">
-                      <span className="mr-2 w-4 flex flex-col justify-center">
-                        {i + 1}.
-                      </span>
-                      <StyledAvatar src={avatar} alt="avatar" />
-                      <span className="ml-2 flex items-center">{address}</span>
-                    </div>
-                    <span>{points} pts</span>
-                  </StyledListItem>
+                {pointList.map(({ avatar, address, points, level }, i) => (
+                  <Popover>
+                    <StyledListItem className="flex ">
+                      <div className="flex" gap="8px">
+                        <span className="mr-2 w-4 flex flex-col justify-center">
+                          {i + 1}.
+                        </span>
+                        <StyledAvatar src={avatar} alt="avatar" />
+                        <span className="ml-2 flex items-center">
+                          {address}
+                        </span>
+                      </div>
+                      <span>{points} pts</span>
+                    </StyledListItem>
+                    <PopoverContent className="flex">
+                      <StyledPopoverAvatar src={avatar} alt="avatar" />
+
+                      <div className="flex flex-col justify-between ml-3 w-full">
+                        <span className="text-sm">{address}</span>
+                        <div className="flex justify-between w-full">
+                          <span className="text-sm">Level: {level}</span>
+                          <Button variant="outline">
+                            <Swords size={16} strokeWidth={1} />
+                          </Button>
+                        </div>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
                 ))}
               </ol>
             </div>
