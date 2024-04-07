@@ -14,7 +14,7 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
-} from "@/components/ui/menubar"
+} from "@/components/ui/Menubar"
 import { useState } from "react"
 import Drawer from "react-modern-drawer"
 
