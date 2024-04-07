@@ -3,21 +3,54 @@ import { Menubar, MenubarMenu, MenubarTrigger } from "@/components/ui/Menubar"
 import { AvatarIcon } from "@radix-ui/react-icons"
 import { Menu as MenuIcon, Wallet as WalletIcon } from "lucide-react"
 import { useState } from "react"
+import phantom from "@/public/images/phantom.png"
+import backpack from "@/public/images/backpack.png"
+import metamask from "@/public/images/metamask.png"
+import { styled } from "@stitches/react"
+
+const StyledImage = styled("img", {
+  width: "20px",
+  height: "20px",
+  borderRadius: "10%",
+})
 
 const Nav = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const toggleDrawer = () => setIsOpen((prevState) => !prevState)
+  const [activeMenu, setActiveMenu] = useState(null) // account, avatar, wallet
+  const toggleDrawer = (activeMenu = null) => {
+    setActiveMenu(activeMenu)
+    setIsOpen((prevState) => !prevState)
+  }
+
+  const wallet = [
+    {
+      icon: phantom.src,
+      name: "Phantom",
+      detected: true,
+    },
+    {
+      icon: backpack.src,
+      name: "backpack",
+      detected: true,
+    },
+    {
+      icon: metamask.src,
+      name: "MetaMask",
+      detected: true,
+    },
+  ]
+
   return (
     <>
       <Menubar className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <MenubarMenu>
-            <MenubarTrigger onClick={toggleDrawer}>
+            <MenubarTrigger onClick={() => toggleDrawer("menu")}>
               <MenuIcon size={16} />
             </MenubarTrigger>
           </MenubarMenu>
           <MenubarMenu>
-            <MenubarTrigger onClick={toggleDrawer}>
+            <MenubarTrigger onClick={() => toggleDrawer("avatar")}>
               <AvatarIcon />
             </MenubarTrigger>
           </MenubarMenu>
@@ -25,7 +58,7 @@ const Nav = () => {
         <div>Account</div>
 
         <MenubarMenu>
-          <MenubarTrigger onClick={toggleDrawer}>
+          <MenubarTrigger onClick={() => toggleDrawer("wallet")}>
             <WalletIcon size={16} />
           </MenubarTrigger>
         </MenubarMenu>
@@ -37,9 +70,41 @@ const Nav = () => {
         style={{
           position: "absolute",
           backgroundColor: "#171717",
-          height: "80%",
+          height: "35%",
         }}
-      ></Drawer>
+      >
+        {activeMenu === "menu" && <div>menu</div>}
+        {activeMenu === "avatar" && <div>avatar</div>}
+        {activeMenu === "wallet" && (
+          <div>
+            <div className="text-center mt-2">
+              Connect a wallet on
+              <br />
+              Solana to continue
+            </div>
+            <div>
+              <ul className="list-none mt-4">
+                {wallet.map((wallet) => (
+                  <li
+                    className="mb-2 flex items-center cursor-pointer"
+                    onClick={() => toggleDrawer(null)}
+                  >
+                    <StyledImage
+                      src={wallet.icon}
+                      alt={wallet.name}
+                      className="w-6 h-6 mr-2"
+                    />
+                    <span className="text-white">{wallet.name}</span>
+                    <span className="ml-auto text-sm text-gray-400">
+                      {wallet.detected ? "Detected" : "Not detected"}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        )}
+      </Drawer>
     </>
   )
 }
