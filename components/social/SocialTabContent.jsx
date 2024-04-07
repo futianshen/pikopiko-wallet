@@ -3,8 +3,30 @@ import { Drawer } from "@/components/ui/Drawer"
 import { Input } from "@/components/ui/Input"
 import { TabsContent } from "@/components/ui/Tabs"
 import { useState } from "react"
+
 import event from "@/public/images/event.webp"
 import quest from "@/public/images/quest.webp"
+import dog from "@/public/images/dog.webp"
+import cat from "@/public/images/cat.webp"
+import penguin from "@/public/images/penguin.webp"
+import turtle from "@/public/images/turtle.webp"
+import { styled } from "@stitches/react"
+
+const StyledAvatar = styled("img", {
+  width: "32px",
+  height: "32px",
+})
+
+const StyledListItem = styled("li", {
+  display: "flex",
+  gap: "8px",
+  alignItems: "center",
+  justifyContent: "space-between",
+  padding: "8px",
+  borderRadius: "8px",
+  backgroundColor: "#292929",
+  color: "white",
+})
 
 export const SocialTabContent = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,18 +50,10 @@ export const SocialTabContent = () => {
   ]
 
   const pointList = [
-    { address: "0x3a...f4c", points: 150 },
-    { address: "0x9b...e2d", points: 120 },
-    { address: "0x1c...b8a", points: 100 },
-    { address: "0x3a...f4c", points: 150 },
-    { address: "0x9b...e2d", points: 120 },
-    { address: "0x1c...b8a", points: 100 },
-    { address: "0x3a...f4c", points: 150 },
-    { address: "0x9b...e2d", points: 120 },
-    { address: "0x1c...b8a", points: 100 },
-    { address: "0x3a...f4c", points: 150 },
-    { address: "0x9b...e2d", points: 120 },
-    { address: "0x1c...b8a", points: 100 },
+    { avatar: dog.src, address: "0x3a...f4c", points: 150 },
+    { avatar: cat.src, address: "0x9b...e2d", points: 120 },
+    { avatar: penguin.src, address: "0x1c...b8a", points: 100 },
+    { avatar: turtle.src, address: "0x3a...f4c", points: 150 },
   ]
 
   return (
@@ -88,15 +102,20 @@ export const SocialTabContent = () => {
                 <span>Ranking:1</span>
                 <span>points: 100 pts</span>
               </div>
-              {pointList.map(({ address, points }, i) => (
-                <div className="flex justify-between" gap="8px">
-                  <div className="flex" gap="8px">
-                    <span>{i + 1}. </span>
-                    <span>{address}</span>
-                  </div>
-                  <span>{points} pts</span>
-                </div>
-              ))}
+              <ol className="flex flex-col gap-2 h-full">
+                {pointList.map(({ avatar, address, points }, i) => (
+                  <StyledListItem className="flex ">
+                    <div className="flex" gap="8px">
+                      <span className="mr-2 w-4 flex flex-col justify-center">
+                        {i + 1}.
+                      </span>
+                      <StyledAvatar src={avatar} alt="avatar" />
+                      <span className="ml-2 flex items-center">{address}</span>
+                    </div>
+                    <span>{points} pts</span>
+                  </StyledListItem>
+                ))}
+              </ol>
             </div>
           )}
           {activeDrawer === "quest" && (
