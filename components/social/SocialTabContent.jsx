@@ -51,21 +51,41 @@ export const SocialTabContent = () => {
   const drawerButtons = [
     {
       key: "event",
-      image: event.src,
+      image: event.src.replace("_next", "next"),
       title: "Event",
     },
     {
       key: "quest",
-      image: quest.src,
+      image: quest.src.replace("_next", "next"),
       title: "Quest",
     },
   ]
 
   const pointList = [
-    { avatar: dog.src, address: "0x3aaeo3eostsf4c", level: 1, points: 150 },
-    { avatar: cat.src, address: "0x9baeo3eostse2d", level: 2, points: 120 },
-    { avatar: penguin.src, address: "0x1caeo3eostsb8a", level: 3, points: 100 },
-    { avatar: turtle.src, address: "0x3aaeo3eostsf4c", level: 4, points: 150 },
+    {
+      avatar: dog.src.replace("_next", "next"),
+      address: "0x3aaeo3eostsf4c",
+      level: 1,
+      points: 150,
+    },
+    {
+      avatar: cat.src.replace("_next", "next"),
+      address: "0x9baeo3eostse2d",
+      level: 2,
+      points: 120,
+    },
+    {
+      avatar: penguin.src.replace("_next", "next"),
+      address: "0x1caeo3eostsb8a",
+      level: 3,
+      points: 100,
+    },
+    {
+      avatar: turtle.src.replace("_next", "next"),
+      address: "0x3aaeo3eostsf4c",
+      level: 4,
+      points: 150,
+    },
   ]
 
   return (
@@ -117,7 +137,7 @@ export const SocialTabContent = () => {
 
               <ol className="flex flex-col gap-2 h-full">
                 {pointList.map(({ avatar, address, points, level }, i) => (
-                  <Popover>
+                  <Popover key={address}>
                     <StyledListItem className="flex ">
                       <div className="flex" gap="8px">
                         <span className="mr-2 w-4 flex flex-col justify-center">

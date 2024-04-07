@@ -17,12 +17,12 @@ export const PetTabContent = () => {
   const drawerButtons = [
     {
       key: "items",
-      image: petItems.src,
+      image: petItems.src.replace("_next", "next"),
       title: "Items",
     },
     {
       key: "database",
-      image: petDatabase.src,
+      image: petDatabase.src.replace("_next", "next"),
       title: "Database",
     },
   ]
@@ -89,7 +89,7 @@ export const PetTabContent = () => {
               <span>points: 100 pts</span>
             </div>
             {pointList.map(({ address, points }, i) => (
-              <div className="flex justify-between" gap="8px">
+              <div className="flex justify-between" gap="8px" key={address}>
                 <div className="flex" gap="8px">
                   <span>{i + 1}. </span>
                   <span>{address}</span>

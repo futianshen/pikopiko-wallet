@@ -27,17 +27,17 @@ const Nav = () => {
 
   const wallet = [
     {
-      icon: phantom.src,
+      icon: phantom.src.replace("_next", "next"),
       name: "Phantom",
       detected: true,
     },
     {
-      icon: backpack.src,
+      icon: backpack.src.replace("_next", "next"),
       name: "backpack",
       detected: true,
     },
     {
-      icon: metamask.src,
+      icon: metamask.src.replace("_next", "next"),
       name: "MetaMask",
       detected: true,
     },
@@ -89,6 +89,7 @@ const Nav = () => {
               <ul className="list-none mt-4">
                 {wallet.map((wallet) => (
                   <li
+                    key={wallet.name}
                     className="mb-2 flex items-center cursor-pointer"
                     onClick={() => toggleDrawer(null)}
                   >

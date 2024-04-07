@@ -57,6 +57,20 @@ npm run build
 ```
 `This will run prep and export to create new folder 'out/', and rename '_next' forlder to 'next' (without underscore)`
 
+rename the images in the following way:
+
+```
+import phantom from "@/public/images/phantom.png"
+
+<img src={phantom.src} alt="phantom" />
+```
+to
+```
+import phantom from "@/public/images/phantom.png"
+
+<img src={phantom.src.replace("_next", "next")} alt="phantom" />
+```
+
 2. Open Google Chrome and go to chrome://extensions.
 
 
