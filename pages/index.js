@@ -13,8 +13,12 @@ export default function Index() {
           defaultValue="social"
           className="h-full w-full flex flex-col justify-between"
         >
-          <SocialTabContent />
-          <PetTabContent />
+          <div className="h-full grid place-items-center">
+            <div>
+              <PetTabContent />
+              <SocialTabContent />
+            </div>
+          </div>
           <TabList />
         </Tabs>
       </div>

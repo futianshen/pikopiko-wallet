@@ -1,8 +1,7 @@
-import { LevelProgress } from "@/components/ui/compose/LevelProgress"
+import { FightingMachine } from "@/components/ui/compose/FightingMachine"
 import { Drawer } from "@/components/ui/Drawer"
 import { Input } from "@/components/ui/Input"
 import { TabsContent } from "@/components/ui/Tabs"
-import pikopiko from "@/public/images/pikopiko.png"
 import { useState } from "react"
 import event from "@/public/images/event.webp"
 import quest from "@/public/images/quest.webp"
@@ -46,10 +45,9 @@ export const SocialTabContent = () => {
   return (
     <div>
       <TabsContent value="social">
-        <img src={pikopiko.src} alt="pikopiko" />
-        <LevelProgress level={3} value={20} />
+        <FightingMachine />
 
-        <div className="flex flex-row" style={{ gap: "8px" }}>
+        <div className="flex flex-row mt-5" style={{ gap: "8px" }}>
           {drawerButtons.map(({ key, image, title }) => (
             <div
               key={key}

@@ -1,11 +1,10 @@
-import { LevelProgress } from "@/components/ui/compose/LevelProgress"
 import { Drawer } from "@/components/ui/Drawer"
 import { Input } from "@/components/ui/Input"
 import { TabsContent } from "@/components/ui/Tabs"
-import pikopiko from "@/public/images/pikopiko.png"
+import { FightingMachine } from "@/components/ui/compose/FightingMachine"
+import petItems from "@/public/images/pet-items.webp"
+import petDatabase from "@/public/images/pet-database.webp"
 import { useState } from "react"
-import event from "@/public/images/event.webp"
-import quest from "@/public/images/quest.webp"
 
 export const PetTabContent = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,18 +13,17 @@ export const PetTabContent = () => {
     setActiveDrawer(activeDrawer)
     setIsOpen((prevState) => !prevState)
   }
-  // console.log(pikopiko.src.replace("_next", "next"))
 
   const drawerButtons = [
     {
-      key: "event",
-      image: event.src,
-      title: "Event",
+      key: "items",
+      image: petItems.src,
+      title: "Items",
     },
     {
-      key: "quest",
-      image: quest.src,
-      title: "Quest",
+      key: "database",
+      image: petDatabase.src,
+      title: "Database",
     },
   ]
 
@@ -45,12 +43,11 @@ export const PetTabContent = () => {
   ]
 
   return (
-    <div>
+    <>
       <TabsContent value="pets">
-        <img src={pikopiko.src} alt="pikopiko" />
-        <LevelProgress level={3} value={20} />
+        <FightingMachine />
 
-        <div className="flex flex-row" style={{ gap: "8px" }}>
+        <div className="flex flex-row mt-5" style={{ gap: "8px" }}>
           {drawerButtons.map(({ key, image, title }) => (
             <div
               key={key}
@@ -74,41 +71,40 @@ export const PetTabContent = () => {
             </div>
           ))}
         </div>
-
-        <Drawer
-          open={isOpen}
-          onClose={toggleDrawer}
-          direction="bottom"
-          style={{
-            position: "absolute",
-            backgroundColor: "#171717",
-            height: "80%",
-          }}
-        >
-          {activeDrawer === "event" && (
-            <div className="m-4">
-              <div className="flex flex-col items-center gap-1 mb-4">
-                <span>Ranking:1</span>
-                <span>points: 100 pts</span>
-              </div>
-              {pointList.map(({ address, points }, i) => (
-                <div className="flex justify-between" gap="8px">
-                  <div className="flex" gap="8px">
-                    <span>{i + 1}. </span>
-                    <span>{address}</span>
-                  </div>
-                  <span>{points} pts</span>
-                </div>
-              ))}
-            </div>
-          )}
-          {activeDrawer === "quest" && (
-            <div className="m-4">
-              <Input placeholder="Search"></Input>
-            </div>
-          )}
-        </Drawer>
       </TabsContent>
-    </div>
+      <Drawer
+        open={isOpen}
+        onClose={toggleDrawer}
+        direction="bottom"
+        style={{
+          position: "absolute",
+          backgroundColor: "#171717",
+          height: "80%",
+        }}
+      >
+        {activeDrawer === "items" && (
+          <div className="m-4">
+            <div className="flex flex-col items-center gap-1 mb-4">
+              <span>Ranking:1</span>
+              <span>points: 100 pts</span>
+            </div>
+            {pointList.map(({ address, points }, i) => (
+              <div className="flex justify-between" gap="8px">
+                <div className="flex" gap="8px">
+                  <span>{i + 1}. </span>
+                  <span>{address}</span>
+                </div>
+                <span>{points} pts</span>
+              </div>
+            ))}
+          </div>
+        )}
+        {activeDrawer === "database" && (
+          <div className="m-4">
+            <Input placeholder="Search"></Input>
+          </div>
+        )}
+      </Drawer>
+    </>
   )
 }
