@@ -12,14 +12,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     ],\
     "dependencyTreeRoots": [\
       {\
-        "name": "pikopiko-wallet",\
+        "name": "sol-pet-legends",\
         "reference": "workspace:."\
       }\
     ],\
     "enableTopLevelFallback": true,\
     "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
     "fallbackExclusionList": [\
-      ["pikopiko-wallet", ["workspace:."]]\
+      ["sol-pet-legends", ["workspace:."]]\
     ],\
     "fallbackPool": [\
     ],\
@@ -4599,11 +4599,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
-      ["pikopiko-wallet", [\
+      ["sol-pet-legends", [\
         ["workspace:.", {\
           "packageLocation": "./",\
           "packageDependencies": [\
-            ["pikopiko-wallet", "workspace:."],\
+            ["sol-pet-legends", "workspace:."],\
             ["@radix-ui/react-icons", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.3.0"],\
             ["@radix-ui/react-menubar", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.0.4"],\
             ["@radix-ui/react-popover", "virtual:210b9f35cdf9dca539a87a7ede3250e2fc0473d0959defdf1c169ce45c5c01e1a2b42c1386a6b6e99fb8f45512f5824d3ff36ca2795401f4390cdbd15a9c5f5c#npm:1.0.7"],\

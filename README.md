@@ -1,4 +1,4 @@
-# Pikopiko Wallet
+# Sol Pet Legends
 
 Integrating a virtual pet breeding gameplay with a cashback app to create a mixed reality interaction model and a shopping experience that sns from web2 to web3.
 
@@ -24,11 +24,11 @@ To install and run Next.js Chrome Extension locally, follow these steps:
 
 1. Clone this repository: 
    ```bash
-   git clone https://github.com/futianshen/pikopiko-wallet.git
+   git clone https://github.com/futianshen/sol-pet-legends.git
    ```
 2. Navigate to project directory: 
    ```bash
-   cd pikopiko-wallet
+   cd sol-pet-legends
    ```
 4. Install the dependencies using yarn: 
    ```bash
