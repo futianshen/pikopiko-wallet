@@ -89,7 +89,7 @@ export const PetTabContent = () => {
               <span>points: 100 pts</span>
             </div>
             {pointList.map(({ address, points }, i) => (
-              <div className="flex justify-between" gap="8px" key={address}>
+              <div className="flex justify-between" gap="8px" key={address+points.toString()}>
                 <div className="flex" gap="8px">
                   <span>{i + 1}. </span>
                   <span>{address}</span>

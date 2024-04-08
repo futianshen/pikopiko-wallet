@@ -10,6 +10,7 @@ import phantom from "@/public/images/phantom.png"
 import backpack from "@/public/images/backpack.png"
 import metamask from "@/public/images/metamask.png"
 import { styled } from "@stitches/react"
+import { useWallet } from "@solana/wallet-adapter-react";
 
 const StyledImage = styled("img", {
   width: "20px",
@@ -18,6 +19,7 @@ const StyledImage = styled("img", {
 })
 
 const Nav = () => {
+  const { publicKey } = useWallet();
   const [isOpen, setIsOpen] = useState(false)
   const [activeMenu, setActiveMenu] = useState(null) // account, avatar, wallet
   const toggleDrawer = (activeMenu = null) => {
@@ -58,7 +60,7 @@ const Nav = () => {
             </MenubarTrigger>
           </MenubarMenu>
         </div>
-        <div>Account</div>
+        <div>{publicKey ? publicKey.toBase58().slice(0, 6) : "Account"}</div>
 
         <MenubarMenu>
           <MenubarTrigger onClick={() => toggleDrawer("wallet")}>

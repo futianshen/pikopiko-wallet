@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+  allowedHosts: ["https://sol-pet-legends.onrender.com", "*"],
+  allowedOrigin: ["https://sol-pet-legends.onrender.com", "*"],
 }
-
-export default nextConfig
