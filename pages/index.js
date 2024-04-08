@@ -64,39 +64,55 @@ export const Home = () => {
   const [userInfo, setUserInfo] = useRecoilState(userAtom);
   const [petInfo, setPetInfo] = useRecoilState(petAtom);
   const init = async () => {
-    console.log("init");
     const userData = await getUser(publicKey.toBase58());
     if (userData) {
       setUserInfo(userData.data);
       setPetInfo(userData.data.pets[0]);
+      return;
     }
     if (!userData) {
-      console.log("GGG")
 
       const exampleUser = {
         username: publicKey.toBase58(),
         password: "demo password"
       }
       const resp = await createUser(exampleUser);
-      console.log(resp);
+      if (!resp) {
+        return;
+      }
       setUserInfo(resp.data);
       const petResp = await createPet();
       setPetInfo(petResp.data);
     }
   }
 
+  const getExp = async () => {
+    for (;;) {
+      //msleep
+      await msleep(5000);
+      const userData = await getUser(publicKey.toBase58());
+      if (userData) {
+        setUserInfo(userData.data);
+        setPetInfo(userData.data.pets[0]);
+      }
+    }
+  }
+  async function msleep(milliseconds) {
+    return new Promise(resolve => setTimeout(resolve, milliseconds));
+  }
   useEffect(() => {
     if (connected && publicKey) {
+
       init();
     }
   }, [connected, publicKey]);
 
   useEffect(() => {
-    console.log("userInfo");
-    console.log(userInfo);
-    console.log("petInfo");
-    console.log(petInfo);
+    if (userInfo) {
+      getExp();
+    }
   }, [userInfo, petInfo])
+
   return (
     <main className={styles.main}>
       <div className="w-full h-full flex flex-col justify-between">
