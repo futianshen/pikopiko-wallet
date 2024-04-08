@@ -16,9 +16,9 @@ import {
 } from "@/components/ui/popover"
 import cat from "@/public/images/cat.webp"
 import dog from "@/public/images/dog.webp"
-import event from "@/public/images/event.webp"
+import event from "@/public/images/event.png"
 import penguin from "@/public/images/penguin.webp"
-import quest from "@/public/images/quest.webp"
+import quest from "@/public/images/bonk.jpeg"
 import turtle from "@/public/images/turtle.webp"
 import { styled } from "@stitches/react"
 
@@ -106,7 +106,8 @@ export const SocialTabContent = () => {
                 width: "112px",
                 height: "112px",
                 backgroundImage: `url(${image})`,
-                backgroundSize: "cover",
+                backgroundSize: "contain",
+                backgroundRepeat: "no-repeat",
                 borderRadius: "32px",
                 overflow: "hidden",
               }}

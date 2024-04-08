@@ -1,4 +1,5 @@
 import pikopiko from "@/public/images/pikopiko.png"
+import bonk_attack from "@/public/images/bonk_attack.gif"
 import { LevelProgress } from "@/components/ui/compose/LevelProgress"
 import { petAtom } from "@/state/state"
 import { useRecoilValue } from "recoil"
@@ -23,8 +24,9 @@ export const FightingMachine = () => {
   }
 
   return (
-    <div>
+    <div style={{ position: "relative" }}>
       <img src={pikopiko.src} alt="pikopiko" />
+      <img src={bonk_attack.src} alt="" style={{position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)", width: "50", height: "50"}}/>
       <LevelProgress level={getLevel()} value={getValue()} />
     </div>
   )
